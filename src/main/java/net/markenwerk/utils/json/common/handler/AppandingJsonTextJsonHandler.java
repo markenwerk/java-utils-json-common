@@ -27,21 +27,17 @@ import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
 import net.markenwerk.utils.text.indentation.Indentation;
 
 /**
- * A {@link AbstractAppandingJsonTextJsonHandler} is a {@link JsonHandler} that
- * appends the handled JSON document as a pretty JSON text to a given
- * {@link Appendable}.
+ * A {@link AppandingJsonTextJsonHandler} is a {@link JsonHandler} that appends
+ * the handled JSON document as a pretty JSON text to a given {@link Appendable}
+ * .
  * 
- * @param <ActualAppendable>
- *            The actual {@link Appendable} type.
- * @param <Result>
- *            The result type.
+ * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public abstract class AbstractAppandingJsonTextJsonHandler<ActualAppendable extends Appendable, Result> implements
-		JsonHandler<Result> {
+public final class AppandingJsonTextJsonHandler implements JsonHandler<Void> {
 
-	private final ActualAppendable appendable;
+	private final Appendable appendable;
 
 	private final Indentation indentation;
 
@@ -52,15 +48,25 @@ public abstract class AbstractAppandingJsonTextJsonHandler<ActualAppendable exte
 	private boolean empty;
 
 	/**
-	 * Creates a new {@link AbstractAppandingJsonTextJsonHandler} using the
-	 * given {@link Appendable} and the given {@link Indentation}.
+	 * Creates a new {@link AppandingJsonTextJsonHandler} using the
+	 * {@link Indentation#DEFAULT} {@link Indentation}.
+	 * 
+	 * @param appendable
+	 *            The {@link Appendable} to be used.
+	 */
+	public AppandingJsonTextJsonHandler(Appendable appendable) {
+		this(appendable, Indentation.DEFAULT);
+	}
+
+	/**
+	 * Creates a new {@link AppandingJsonTextJsonHandler}.
 	 * 
 	 * @param appendable
 	 *            The {@link Appendable} to be used.
 	 * @param indentation
 	 *            The {@link Indentation} to be used.
 	 */
-	public AbstractAppandingJsonTextJsonHandler(ActualAppendable appendable, Indentation indentation) {
+	public AppandingJsonTextJsonHandler(Appendable appendable, Indentation indentation) {
 		if (null == appendable) {
 			throw new IllegalArgumentException("writer is null");
 		}
@@ -69,18 +75,6 @@ public abstract class AbstractAppandingJsonTextJsonHandler<ActualAppendable exte
 		}
 		this.appendable = appendable;
 		this.indentation = indentation;
-	}
-
-	/**
-	 * Returns the {@link Appendable} this
-	 * {@link AbstractAppandingJsonTextJsonHandler} has been created with.
-	 * 
-	 * @return The {@link Appendable} this
-	 *         {@link AbstractAppandingJsonTextJsonHandler} has been created
-	 *         with.
-	 */
-	protected final ActualAppendable getAppendable() {
-		return appendable;
 	}
 
 	@Override
@@ -241,6 +235,11 @@ public abstract class AbstractAppandingJsonTextJsonHandler<ActualAppendable exte
 		} catch (IOException e) {
 			throw new JsonHandlingException(e);
 		}
+	}
+
+	@Override
+	public Void getResult() throws JsonHandlingException {
+		return null;
 	}
 
 }
