@@ -19,49 +19,49 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.commons.exceptions;
+package net.markenwerk.utils.json.common.exceptions;
 
 /**
- * A {@link InvalidJsonValueException} is a {@link JsonValueException} indicates that
- * a JSON value couldn't be processed or failed to fulfill a constraint.
+ * A {@link MissingJsonValueException} is a {@link JsonValueException} indicates
+ * that a JSON structure has no JSON value for a given index.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class InvalidJsonValueException extends JsonValueException {
+public final class MissingJsonValueException extends JsonValueException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 
 	/**
-	 * Creates a new {@link InvalidJsonValueException} with the given message
+	 * Creates a new {@link MissingJsonValueException} with the given message
 	 * and cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link InvalidJsonValueException}.
+	 *            The cause of this {@link MissingJsonValueException}.
 	 */
-	public InvalidJsonValueException(String message, Throwable cause) {
+	public MissingJsonValueException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link InvalidJsonValueException} with the given message.
+	 * Creates a new {@link MissingJsonValueException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public InvalidJsonValueException(String message) {
+	public MissingJsonValueException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link InvalidJsonValueException} with the given cause.
+	 * Creates a new {@link MissingJsonValueException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link InvalidJsonValueException}.
+	 *            The cause of this {@link MissingJsonValueException}.
 	 */
-	public InvalidJsonValueException(Throwable cause) {
+	public MissingJsonValueException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

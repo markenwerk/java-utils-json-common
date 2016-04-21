@@ -19,9 +19,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.commons.handler;
+package net.markenwerk.utils.json.common.handler;
 
-import net.markenwerk.utils.json.commons.exceptions.JsonHandlingException;
+import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
 
 /**
  * A {@link JsonHandler} provides a collection of callback methods that can be

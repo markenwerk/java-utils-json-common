@@ -19,22 +19,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.commons.handler;
+package net.markenwerk.utils.json.common.handler;
 
 import java.io.IOException;
 import java.io.Writer;
 
-import net.markenwerk.utils.json.commons.exceptions.JsonHandlingException;
+import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
 import net.markenwerk.utils.text.indentation.Indentation;
 
 /**
- * A {@link JsonStringJsonHandler} is a {@link JsonHandler} that writes the
- * handled JSON document as a JSON string into a {@link Writer}.
+ * A {@link AbstractJsonTextJsonHandler} is a {@link JsonHandler} that writes
+ * the handled JSON document as a JSON text into a {@link Writer}.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class JsonStringJsonHandler implements JsonHandler<Void> {
+public abstract class AbstractJsonTextJsonHandler<Result> implements JsonHandler<Result> {
 
 	private final Appendable appendable;
 
@@ -46,11 +46,7 @@ public final class JsonStringJsonHandler implements JsonHandler<Void> {
 
 	private boolean empty;
 
-	public JsonStringJsonHandler(Appendable appendable) {
-		this(appendable, Indentation.DEFAULT);
-	}
-
-	public JsonStringJsonHandler(Appendable appendable, Indentation indentation) {
+	public AbstractJsonTextJsonHandler(Appendable appendable, Indentation indentation) {
 		if (null == appendable) {
 			throw new IllegalArgumentException("writer is null");
 		}
@@ -61,16 +57,20 @@ public final class JsonStringJsonHandler implements JsonHandler<Void> {
 		this.indentation = this.indentation;
 	}
 
-	@Override
-	public void onDocumentBegin() {
+	protected final Appendable getAppendable() {
+		return appendable;
 	}
 
 	@Override
-	public void onDocumentEnd() {
+	public final void onDocumentBegin() {
 	}
 
 	@Override
-	public void onArrayBegin() throws JsonHandlingException {
+	public final void onDocumentEnd() {
+	}
+
+	@Override
+	public final void onArrayBegin() throws JsonHandlingException {
 		writeIndentation();
 		writeUnescaped("[");
 		depth++;
@@ -78,7 +78,7 @@ public final class JsonStringJsonHandler implements JsonHandler<Void> {
 	}
 
 	@Override
-	public void onArrayEnd() throws JsonHandlingException {
+	public final void onArrayEnd() throws JsonHandlingException {
 		depth--;
 		if (!empty) {
 			writeIndentation();
@@ -88,7 +88,7 @@ public final class JsonStringJsonHandler implements JsonHandler<Void> {
 	}
 
 	@Override
-	public void onObjectBegin() throws JsonHandlingException {
+	public final void onObjectBegin() throws JsonHandlingException {
 		writeIndentation();
 		writeUnescaped("{");
 		depth++;
@@ -96,7 +96,7 @@ public final class JsonStringJsonHandler implements JsonHandler<Void> {
 	}
 
 	@Override
-	public void onObjectEnd() throws JsonHandlingException {
+	public final void onObjectEnd() throws JsonHandlingException {
 		depth--;
 		if (!empty) {
 			writeIndentation();
@@ -106,7 +106,7 @@ public final class JsonStringJsonHandler implements JsonHandler<Void> {
 	}
 
 	@Override
-	public void onName(String name) throws JsonHandlingException {
+	public final void onName(String name) throws JsonHandlingException {
 		writeUnescaped("\n");
 		writeUnescaped(indentation.getIndentationString(depth));
 		indented = true;
@@ -119,43 +119,43 @@ public final class JsonStringJsonHandler implements JsonHandler<Void> {
 	}
 
 	@Override
-	public void onNext() throws JsonHandlingException {
+	public final void onNext() throws JsonHandlingException {
 		writeUnescaped(",");
 	}
 
 	@Override
-	public void onNull() throws JsonHandlingException {
+	public final void onNull() throws JsonHandlingException {
 		writeIndentation();
 		writeUnescaped("null");
 	}
 
 	@Override
-	public void onBoolean(boolean value) throws JsonHandlingException {
+	public final void onBoolean(boolean value) throws JsonHandlingException {
 		writeIndentation();
 		writeUnescaped(value ? "true" : "false");
 	}
 
 	@Override
-	public void onLong(long value) throws JsonHandlingException {
+	public final void onLong(long value) throws JsonHandlingException {
 		writeIndentation();
 		writeUnescaped(Long.toString(value));
 	}
 
 	@Override
-	public void onDouble(double value) throws JsonHandlingException {
+	public final void onDouble(double value) throws JsonHandlingException {
 		writeIndentation();
 		writeUnescaped(Double.toString(value));
 	}
 
 	@Override
-	public void onString(String value) throws JsonHandlingException {
+	public final void onString(String value) throws JsonHandlingException {
 		writeIndentation();
 		writeUnescaped("\"");
 		writeEscaped(value);
 		writeUnescaped("\"");
 	}
 
-	private void writeIndentation() throws JsonHandlingException {
+	private final void writeIndentation() throws JsonHandlingException {
 		if (!indented) {
 			writeUnescaped("\n");
 			writeUnescaped(indentation.getIndentationString(depth));
@@ -164,7 +164,7 @@ public final class JsonStringJsonHandler implements JsonHandler<Void> {
 		empty = false;
 	}
 
-	private void writeUnescaped(String string) throws JsonHandlingException {
+	private final void writeUnescaped(String string) throws JsonHandlingException {
 		try {
 			appendable.append(string);
 		} catch (IOException e) {
@@ -172,7 +172,7 @@ public final class JsonStringJsonHandler implements JsonHandler<Void> {
 		}
 	}
 
-	private void writeEscaped(String string) throws JsonHandlingException {
+	private final void writeEscaped(String string) throws JsonHandlingException {
 		try {
 			for (int i = 0, n = string.length(); i < n; i++) {
 				char character = string.charAt(i);
@@ -219,11 +219,6 @@ public final class JsonStringJsonHandler implements JsonHandler<Void> {
 		} catch (IOException e) {
 			throw new JsonHandlingException(e);
 		}
-	}
-
-	@Override
-	public Void getResult() {
-		return null;
 	}
 
 }

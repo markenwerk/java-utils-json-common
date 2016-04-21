@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.commons.handler;
+package net.markenwerk.utils.json.common.handler;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -29,7 +29,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import net.markenwerk.utils.json.commons.exceptions.JsonHandlingException;
+import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
 
 public final class XmlJsonHandler implements JsonHandler<Document> {
 

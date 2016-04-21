@@ -19,49 +19,47 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.commons.exceptions;
+package net.markenwerk.utils.json.common.exceptions;
 
 /**
- * A {@link JsonValueException} is a {@link JsonException} indicates that a JSON
- * value couldn't be processed.
+ * A {@link JsonException} indicates that a JSON related operation failed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public abstract class JsonValueException extends JsonException {
+public abstract class JsonException extends RuntimeException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 
 	/**
-	 * Creates a new {@link JsonValueException} with the given message and
-	 * cause.
+	 * Creates a new {@link JsonException} with the given message and cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link JsonValueException}.
+	 *            The cause of this {@link JsonException}.
 	 */
-	public JsonValueException(String message, Throwable cause) {
+	public JsonException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link JsonValueException} with the given message.
+	 * Creates a new {@link JsonException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public JsonValueException(String message) {
+	public JsonException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link JsonValueException} with the given cause.
+	 * Creates a new {@link JsonException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link JsonValueException}.
+	 *            The cause of this {@link JsonException}.
 	 */
-	public JsonValueException(Throwable cause) {
+	public JsonException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

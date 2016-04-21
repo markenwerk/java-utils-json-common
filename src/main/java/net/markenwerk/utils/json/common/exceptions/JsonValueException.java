@@ -19,49 +19,49 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.commons.exceptions;
+package net.markenwerk.utils.json.common.exceptions;
 
 /**
- * A {@link InvalidJsonIndexException} is a {@link JsonException} indicates that
- * a given index value is not valid for a given JSON structure.
+ * A {@link JsonValueException} is a {@link JsonException} indicates that a JSON
+ * value couldn't be processed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class InvalidJsonIndexException extends JsonException {
+public abstract class JsonValueException extends JsonException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 
 	/**
-	 * Creates a new {@link InvalidJsonIndexException} with the given message
-	 * and cause.
+	 * Creates a new {@link JsonValueException} with the given message and
+	 * cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link InvalidJsonIndexException}.
+	 *            The cause of this {@link JsonValueException}.
 	 */
-	public InvalidJsonIndexException(String message, Throwable cause) {
+	public JsonValueException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link InvalidJsonIndexException} with the given message.
+	 * Creates a new {@link JsonValueException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public InvalidJsonIndexException(String message) {
+	public JsonValueException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link InvalidJsonIndexException} with the given cause.
+	 * Creates a new {@link JsonValueException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link InvalidJsonIndexException}.
+	 *            The cause of this {@link JsonValueException}.
 	 */
-	public InvalidJsonIndexException(Throwable cause) {
+	public JsonValueException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

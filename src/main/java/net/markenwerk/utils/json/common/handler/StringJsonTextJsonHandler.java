@@ -19,48 +19,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.commons.exceptions;
+package net.markenwerk.utils.json.common.handler;
+
+import java.io.Writer;
+
+import net.markenwerk.utils.text.indentation.Indentation;
 
 /**
- * A {@link JsonException} indicates that a JSON related operation failed.
+ * A {@link StringJsonTextJsonHandler} is a {@link JsonHandler} that writes the
+ * handled JSON document as a JSON text into a {@link Writer}.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public abstract class JsonException extends RuntimeException {
+public final class StringJsonTextJsonHandler extends AbstractJsonTextJsonHandler<String> {
 
-	private static final long serialVersionUID = -224463970528325073L;
-
-	/**
-	 * Creates a new {@link JsonException} with the given message and cause.
-	 *
-	 * @param message
-	 *            The message.
-	 * @param cause
-	 *            The cause of this {@link JsonException}.
-	 */
-	public JsonException(String message, Throwable cause) {
-		super(message, cause);
+	public StringJsonTextJsonHandler() {
+		this(Indentation.DEFAULT);
 	}
 
-	/**
-	 * Creates a new {@link JsonException} with the given message.
-	 *
-	 * @param message
-	 *            The message.
-	 */
-	public JsonException(String message) {
-		super(message);
+	public StringJsonTextJsonHandler(Indentation indentation) {
+		super(new StringBuilder(), indentation);
 	}
 
-	/**
-	 * Creates a new {@link JsonException} with the given cause.
-	 *
-	 * @param cause
-	 *            The cause of this {@link JsonException}.
-	 */
-	public JsonException(Throwable cause) {
-		super(null == cause ? null : cause.getMessage(), cause);
+	@Override
+	public String getResult() {
+		return getAppendable().toString();
 	}
 
 }

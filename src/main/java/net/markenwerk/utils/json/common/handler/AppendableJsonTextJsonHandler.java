@@ -19,50 +19,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.commons.exceptions;
+package net.markenwerk.utils.json.common.handler;
+
+import java.io.Writer;
+
+import net.markenwerk.utils.text.indentation.Indentation;
 
 /**
- * A {@link JsonHandlingException} is a {@link JsonException} that indicates that the
- * handling of a JSON document or a JSON value failed.
+ * A {@link AppendableJsonTextJsonHandler} is a {@link JsonHandler} that writes
+ * the handled JSON document as a JSON text into a {@link Writer}.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
- * @since 1.1.0
+ * @since 1.0.0
  */
-public final class JsonHandlingException extends JsonException {
+public final class AppendableJsonTextJsonHandler extends AbstractJsonTextJsonHandler<Void> {
 
-	private static final long serialVersionUID = -290339970597461477L;
-
-	/**
-	 * Creates a new {@link JsonHandlingException} with the given message and
-	 * cause.
-	 *
-	 * @param message
-	 *            The message.
-	 * @param cause
-	 *            The cause of this {@link JsonHandlingException}.
-	 */
-	public JsonHandlingException(String message, Throwable cause) {
-		super(message, cause);
+	public AppendableJsonTextJsonHandler(Appendable appendable) {
+		this(appendable, Indentation.DEFAULT);
 	}
 
-	/**
-	 * Creates a new {@link JsonHandlingException} with the given message.
-	 *
-	 * @param message
-	 *            The message.
-	 */
-	public JsonHandlingException(String message) {
-		super(message);
+	public AppendableJsonTextJsonHandler(Appendable appendable, Indentation indentation) {
+		super(appendable, indentation);
 	}
 
-	/**
-	 * Creates a new {@link JsonHandlingException} with the given cause.
-	 *
-	 * @param cause
-	 *            The cause of this {@link JsonHandlingException}.
-	 */
-	public JsonHandlingException(Throwable cause) {
-		super(null == cause ? null : cause.getMessage(), cause);
+	@Override
+	public Void getResult() {
+		return null;
 	}
 
 }
