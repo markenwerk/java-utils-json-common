@@ -21,23 +21,39 @@
  */
 package net.markenwerk.utils.json.common.handler;
 
-import java.io.Writer;
-
 import net.markenwerk.utils.text.indentation.Indentation;
 
 /**
- * A {@link StringJsonTextJsonHandler} is a {@link JsonHandler} that writes the
- * handled JSON document as a JSON text into a {@link Writer}.
+ * A {@link StringJsonTextJsonHandler} is a {@link JsonHandler} that calculates
+ * a pretty JSON text for the handled JSON document as a result.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class StringJsonTextJsonHandler extends AbstractJsonTextJsonHandler<String> {
+public final class StringJsonTextJsonHandler extends AbstractAppandingJsonTextJsonHandler<StringBuilder, String> {
 
-	public StringJsonTextJsonHandler() {
+	/**
+	 * Creates a new {@link StringJsonTextJsonHandler} using the
+	 * {@link Indentation#DEFAULT default} Indentation.
+	 * 
+	 * 
+	 * @throws IllegalArgumentException
+	 *             If the given {@link Appendable} is {@literal null}.
+	 */
+	public StringJsonTextJsonHandler() throws IllegalArgumentException {
 		this(Indentation.DEFAULT);
 	}
 
+	/**
+	 * Creates a new {@link StringJsonTextJsonHandler}.
+	 * 
+	 * @param indentation
+	 *            The {@link Indentation} to be used.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             If the given {@link Appendable} is {@literal null} or if the
+	 *             given {@link Indentation} is {@literal null}.
+	 */
 	public StringJsonTextJsonHandler(Indentation indentation) {
 		super(new StringBuilder(), indentation);
 	}

@@ -22,21 +22,26 @@
 package net.markenwerk.utils.json.common.handler;
 
 import java.io.IOException;
-import java.io.Writer;
 
 import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
 import net.markenwerk.utils.text.indentation.Indentation;
 
 /**
- * A {@link AbstractJsonTextJsonHandler} is a {@link JsonHandler} that writes
- * the handled JSON document as a JSON text into a {@link Writer}.
+ * A {@link AbstractAppandingJsonTextJsonHandler} is a {@link JsonHandler} that
+ * appends the handled JSON document as a pretty JSON text to a given
+ * {@link Appendable}.
  * 
+ * @param <ActualAppendable>
+ *            The actual {@link Appendable} type.
+ * @param <Result>
+ *            The result type.
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public abstract class AbstractJsonTextJsonHandler<Result> implements JsonHandler<Result> {
+public abstract class AbstractAppandingJsonTextJsonHandler<ActualAppendable extends Appendable, Result> implements
+		JsonHandler<Result> {
 
-	private final Appendable appendable;
+	private final ActualAppendable appendable;
 
 	private final Indentation indentation;
 
@@ -46,7 +51,16 @@ public abstract class AbstractJsonTextJsonHandler<Result> implements JsonHandler
 
 	private boolean empty;
 
-	public AbstractJsonTextJsonHandler(Appendable appendable, Indentation indentation) {
+	/**
+	 * Creates a new {@link AbstractAppandingJsonTextJsonHandler} using the
+	 * given {@link Appendable} and the given {@link Indentation}.
+	 * 
+	 * @param appendable
+	 *            The {@link Appendable} to be used.
+	 * @param indentation
+	 *            The {@link Indentation} to be used.
+	 */
+	public AbstractAppandingJsonTextJsonHandler(ActualAppendable appendable, Indentation indentation) {
 		if (null == appendable) {
 			throw new IllegalArgumentException("writer is null");
 		}
@@ -54,10 +68,18 @@ public abstract class AbstractJsonTextJsonHandler<Result> implements JsonHandler
 			throw new IllegalArgumentException("indentation is null");
 		}
 		this.appendable = appendable;
-		this.indentation = this.indentation;
+		this.indentation = indentation;
 	}
 
-	protected final Appendable getAppendable() {
+	/**
+	 * Returns the {@link Appendable} this
+	 * {@link AbstractAppandingJsonTextJsonHandler} has been created with.
+	 * 
+	 * @return The {@link Appendable} this
+	 *         {@link AbstractAppandingJsonTextJsonHandler} has been created
+	 *         with.
+	 */
+	protected final ActualAppendable getAppendable() {
 		return appendable;
 	}
 

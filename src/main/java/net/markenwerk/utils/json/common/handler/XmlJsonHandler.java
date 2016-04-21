@@ -31,16 +31,114 @@ import org.w3c.dom.Node;
 
 import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
 
+/**
+ * A {@link XmlJsonHandler} is a {@link JsonHandler} that creates a XML
+ * {@link Document} that represents the same data as the handled JSON document
+ * using the following rules:
+ * 
+ * <ul>
+ * <li>A JSON array is represented as a tag with name {@code array}.</li>
+ * <li>A JSON object is represented as a tag with name {@code object}.</li>
+ * <li>A JSON object entry is represented as a tag with name {@code entry}. The
+ * name of the JSON object entry is represented as an attribute with name
+ * {@code name}.</li>
+ * <li>A JSON null is represented as a tag with name {@code null}.</li>
+ * <li>A JSON boolean is represented as a tag with name {@code false} or
+ * {@code true}.</li>
+ * <li>A JSON number (long or double) is represented as a tag with name
+ * {@code number}. The numerical value is represented as the text content of
+ * this tag.</li>
+ * <li>A JSON string is represented as a tag with name {@code string}. The
+ * textual value is represented as the text content of this tag.</li>
+ * </ul>
+ * 
+ * <p>
+ * <b>Example:</b>
+ * 
+ * <p>
+ * Input JSON document:
+ * 
+ * <pre>
+ * {
+ *     "nullValue": null,
+ *     "booleanValue": true,
+ *     "longValue": -10000,
+ *     "doubleValue": 42.23,
+ *     "stringValue": "foobar",
+ *     "arrayValue": [],
+ *     "objectValue": {}
+ * }
+ * </pre>
+ * 
+ * Output XML document:
+ * 
+ * <pre>
+ * {@code
+ * <?xml version="1.0" encoding="UTF-8"?>
+ * <object>
+ *    <entry name="nullValue">
+ *       <null />
+ *    </entry>
+ *    <entry name="booleanValue">
+ *       <true />
+ *    </entry>
+ *    <entry name="longValue">
+ *       <number>-10000</number>
+ *    </entry>
+ *    <entry name="doubleValue">
+ *       <number>42.23</number>
+ *    </entry>
+ *    <entry name="stringValue">
+ *       <string>foobar</string>
+ *    </entry>
+ *    <entry name="arrayValue">
+ *       <array />
+ *    </entry>
+ *    <entry name="objectValue">
+ *       <object />
+ *    </entry>
+ * </object>
+ * }
+ * </pre>
+ * 
+ *
+ * @author Torsten Krause (tk at markenwerk dot net)
+ * @since 1.0.0
+ */
 public final class XmlJsonHandler implements JsonHandler<Document> {
 
 	private final Document document;
 
 	private Node node;
 
-	public XmlJsonHandler() throws ParserConfigurationException {
-		this(DocumentBuilderFactory.newInstance().newDocumentBuilder());
+	/**
+	 * Creates a new {@link XmlJsonHandler} using a @link
+	 * {@link DocumentBuilderFactory#newDocumentBuilder() default}
+	 * {@link DocumentBuilder} created by a
+	 * {@link DocumentBuilderFactory#newInstance() default}
+	 * {@link DocumentBuilderFactory}.
+	 */
+	public XmlJsonHandler() {
+		this(createDocumentBuilder());
 	}
 
+	private static DocumentBuilder createDocumentBuilder() {
+		try {
+			return DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		} catch (ParserConfigurationException e) {
+			throw new RuntimeException("The default DocumentBuilder faild to create a XML Document", e);
+		}
+	}
+
+	/**
+	 * Create a new {@link XmlJsonHandler} using the given
+	 * {@link DocumentBuilder} to create a new XML {@link Document}.
+	 * 
+	 * @param documentBuilder
+	 *            The {@link DocumentBuilder} to be used.
+	 * @throws IllegalArgumentException
+	 *             If the given {@link DocumentBuilder} is {@literal null}.
+	 */
 	public XmlJsonHandler(DocumentBuilder documentBuilder) throws IllegalArgumentException {
 		if (null == documentBuilder) {
 			throw new IllegalArgumentException("documentBuilder is null");
