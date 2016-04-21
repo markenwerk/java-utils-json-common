@@ -1,4 +1,4 @@
-# Common components for JSON processing libraries for Java
+# Common components for JSON libraries
 
 [![Build Status](https://travis-ci.org/markenwerk/java-utils-json-common.svg?branch=master)](https://travis-ci.org/markenwerk/java-utils-json-common)
 [![Coverage Status](https://coveralls.io/repos/github/markenwerk/java-utils-json-common/badge.svg?branch=master)](https://coveralls.io/github/markenwerk/java-utils-json-common?branch=master)
