@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/markenwerk/java-utils-json-common.svg?branch=master)](https://travis-ci.org/markenwerk/java-utils-json-common)
 [![Coverage Status](https://coveralls.io/repos/github/markenwerk/java-utils-json-common/badge.svg?branch=master)](https://coveralls.io/github/markenwerk/java-utils-json-common?branch=master)
-[![Dependency Status](https://www.versioneye.com/user/projects/571906ddfcd19a0039f17ad9/badge.svg)](https://www.versioneye.com/user/projects/571906ddfcd19a0039f17ad9)
+[![Dependency Status](https://www.versioneye.com/user/projects/57190b36fcd19a00518561ba/badge.svg)](https://www.versioneye.com/user/projects/57190b36fcd19a00518561ba)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/utils-json-common/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/utils-json-common)
 [![Issues](https://img.shields.io/github/issues/markenwerk/java-utils-json-common.svg)](https://github.com/markenwerk/java-utils-json-common/issues)
 [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/markenwerk/java-utils-json-common/blob/master/LICENSE)
