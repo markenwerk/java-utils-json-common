@@ -222,11 +222,10 @@ public final class AppandingJsonTextJsonHandler extends IdleJsonHandler<Void> {
 					if (character < ' ') {
 						appendable.append("\\u");
 						String hexString = Integer.toString(character, 16);
-						for (int j = 0, m = hexString.length(); j < m; j++) {
+						for (int j = 0, m = 4 - hexString.length(); j < m; j++) {
 							appendable.append("0");
 
 						}
-						appendable.append(hexString);
 						appendable.append(hexString);
 					} else {
 						appendable.append(Character.toString(character));

@@ -231,9 +231,24 @@ public class JsonTextJsonHandlerTests {
 		Assert.assertEquals("\"__\\\"_\\\\_\\/_\\b_\\f_\\n_\\r_\\t__\"", result);
 
 	}
+	
+	@Test
+	public void onString_controllEscapeSequances() {
+
+		JsonHandler<String> handler = new JsonTextJsonHandler(INDENTATION);
+
+		handler.onDocumentBegin();
+		handler.onString(Character.toString((char) 0));
+		handler.onDocumentEnd();
+
+		String result = handler.getResult();
+
+		Assert.assertEquals("\"\\u0000\"", result);
+
+	}
 
 	@Test
-	public void onString_unicideEscapeSequances() {
+	public void onString_unicodeEscapeSequances() {
 
 		JsonHandler<String> handler = new JsonTextJsonHandler(INDENTATION);
 
