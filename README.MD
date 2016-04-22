@@ -184,7 +184,7 @@ The returned XML [`Document`][Document] has the following content:
 [AppendingJsonTextJsonHandler]: https://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html
 [JsonHandler]: http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/JsonHandler.html
 [JsonTextJsonHandler]: http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html
-[XmlJsonHandler]: http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/XmlJsonHandler.html
+[XmlDocumentJsonHandler]: http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html
 
 [JsonDocument]: https://markenwerk.github.io/java-utils-json-model/index.html?net/markenwerk/utils/json/JsonDocument.html
 
