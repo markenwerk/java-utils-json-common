@@ -142,6 +142,44 @@ JsonDocument document = ...
 String json = document.handle(new JsonTextJsonHandler(writer));
 ```
 
+### XML document handler
+
+This library provides the [`XmlDocumentJsonHandler`][XmlDocumentJsonHandler] which creates a XML [`Document`][Document] which resembles the handled JSON document returns the created [`Document`][Document]:
+
+```java
+// a JsonDocument
+JsonDocument document = ...
+
+// returns a xml document  
+Document xmlDocument = document.handle(new XmlDocumentJsonHandler());
+```
+
+The returned XML [`Document`][Document] has the following content:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<object>
+   <entry name="null">
+      <null />
+   </entry>
+   <entry name="boolean">
+      <boolean value="true" />
+   </entry>
+   <entry name="longValue">
+      <number value="-42" />
+   </entry>
+   <entry name="double">
+      <number value="-23.42" />
+   </entry>
+   <entry name="array">
+      <array>
+         <string value="foo" />
+         <string value="bar" />
+      </array>
+   </entry>
+</object>
+```
+
 
 [AppendingJsonTextJsonHandler]: https://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html
 [JsonHandler]: http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/JsonHandler.html
