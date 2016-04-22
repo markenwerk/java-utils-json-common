@@ -30,15 +30,118 @@ This library is hosted in the [Maven Central Repository](https://maven-badges.he
  
 ## Usage
 
+Here is a small JSON document that is used in the following code examples:
+```json
+{
+	"null" : null,
+	"boolean" : true,
+	"long" : -42,
+	"double" : -23.42,
+	"array" : [
+		"foo",
+		"bar"
+	],
+}
+```
+
 ### Handling JSON documents
 
 This library provides the [`JsonHandler`][JsonHandler] interface which provides a collection of callback methods that can be called (e.g. by a JSON parser or by domain model for JSON documents) to describe a JSON document and calculates a result for the described JSON document.
 
-This library provides the following implementations of [`JsonHandler`][JsonHandler]:
+The following sequence of callback methods describes the example JSON document.
 
- - [`AppendingJsonTextJsonHandler`][AppendingJsonTextJsonHandler]: Recreates the handled JSON document as a pretty printed JSON text that is appended to an [`Appendable`][Appendable].
- - [`JsonTextJsonHandler`][JsonTextJsonHandler]: Recreates the handled JSON document as a pretty printed JSON text that is returned as a [`String`][String].
- - [`XmlJsonHandler`][XmlJsonHandler]: Creates a XML [`Document`][Document] that represents the same data as the handled JSON document.
+```java
+// a generic JsonHandler
+JsonHandler<?> handler = ...
+
+// begin a document
+handler.onDocumentBegin();
+
+	// begin an object
+	handler.onObjectBegin();
+	
+	// inside the object: set a name followed by a value to describe an entry
+	handler.onName("null");
+	handler.onNull();
+
+	// inside the object: call next between two entries
+	handler.onNext();
+	
+	handler.onName("boolean");
+	handler.onBoolean(true);
+	
+	handler.onNext();
+	
+	handler.onName("long");
+	handler.onLong(-42);
+	
+	handler.onNext();
+	
+	handler.onName("double");
+	handler.onDouble(-23.42);
+	
+	handler.onNext();
+	
+		// begin an array
+		handler.onName("array");
+		handler.onArrayBegin();
+	
+		// inside the object: just a value to describe an entry
+		handler.onString("foo");
+	
+		// inside the object: call next between two entries
+		handler.onNext();
+	
+		handler.onString("bar");
+		
+		// end the array
+		handler.onArrayEnd();
+	
+	// end the object
+	handler.onObjectEnd();
+
+// end the document
+handler.onDocumentEnd();
+```
+
+A [`JsonDocument`][JsonDocument] from the convenient JSON domain model [library](https://github.com/markenwerk/java-utils-json-model) takes a [`JsonHandler`][JsonHandler] and calls the appropriate callback methods to describe itself.
+
+```
+// Json describing the example
+// a generic JsonHandler
+JsonHandler<?> handler = ...
+
+// a JsonDocument
+JsonDocument document = ...
+
+// handle document with handler
+document.handle(handler);
+```
+
+### JSON text handler
+
+This library provides the [`AppendingJsonTextJsonHandler`][AppendingJsonTextJsonHandler] which recreates the handled JSON document as a pretty printed JSON text that is appended to an [`Appendable`][Appendable]:
+
+```
+// a JsonDocument
+JsonDocument document = ...
+
+// writes a pretty printed json document into test.json  
+Writer writer = new FileWriter(new File("test.json"));
+document.handle(new AppendingJsonTextJsonHandler(writer));
+writer.close();
+```
+
+This library provides the [`JsonTextJsonHandler`][JsonTextJsonHandler] which recreates the handled JSON document as a pretty printed JSON text and returns it as a [`String`][String]:
+
+```
+// a JsonDocument
+JsonDocument document = ...
+
+// returns a pretty printed json document  
+String json = document.handle(new JsonTextJsonHandler(writer));
+```
+
 
 [AppendingJsonTextJsonHandler]:  http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html
 [JsonHandler]:  http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/JsonHandler.html
