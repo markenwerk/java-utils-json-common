@@ -60,39 +60,39 @@ handler.onDocumentBegin();
 	// begin an object
 	handler.onObjectBegin();
 	
-	// inside the object: set a name followed by a value to describe an entry
-	handler.onName("null");
-	handler.onNull();
-
-	// inside the object: call next between two entries
-	handler.onNext();
-	
-	handler.onName("boolean");
-	handler.onBoolean(true);
-	
-	handler.onNext();
-	
-	handler.onName("long");
-	handler.onLong(-42);
-	
-	handler.onNext();
-	
-	handler.onName("double");
-	handler.onDouble(-23.42);
-	
-	handler.onNext();
-	
-		// begin an array
-		handler.onName("array");
-		handler.onArrayBegin();
-	
-		// inside the object: just a value to describe an entry
-		handler.onString("foo");
+		// inside the object: set a name followed by a value to describe an entry
+		handler.onName("null");
+		handler.onNull();
 	
 		// inside the object: call next between two entries
 		handler.onNext();
-	
-		handler.onString("bar");
+		
+		handler.onName("boolean");
+		handler.onBoolean(true);
+		
+		handler.onNext();
+		
+		handler.onName("long");
+		handler.onLong(-42);
+		
+		handler.onNext();
+		
+		handler.onName("double");
+		handler.onDouble(-23.42);
+		
+		handler.onNext();
+		
+		// begin an array
+		handler.onName("array");
+		handler.onArrayBegin();
+		
+			// inside the object: just a value to describe an entry
+			handler.onString("foo");
+		
+			// inside the object: call next between two entries
+			handler.onNext();
+		
+			handler.onString("bar");
 		
 		// end the array
 		handler.onArrayEnd();
@@ -106,7 +106,7 @@ handler.onDocumentEnd();
 
 A [`JsonDocument`][JsonDocument] from the convenient JSON domain model [library](https://github.com/markenwerk/java-utils-json-model) takes a [`JsonHandler`][JsonHandler] and calls the appropriate callback methods to describe itself.
 
-```
+```java
 // Json describing the example
 // a generic JsonHandler
 JsonHandler<?> handler = ...
@@ -122,7 +122,7 @@ document.handle(handler);
 
 This library provides the [`AppendingJsonTextJsonHandler`][AppendingJsonTextJsonHandler] which recreates the handled JSON document as a pretty printed JSON text that is appended to an [`Appendable`][Appendable]:
 
-```
+```java
 // a JsonDocument
 JsonDocument document = ...
 
@@ -134,7 +134,7 @@ writer.close();
 
 This library provides the [`JsonTextJsonHandler`][JsonTextJsonHandler] which recreates the handled JSON document as a pretty printed JSON text and returns it as a [`String`][String]:
 
-```
+```java
 // a JsonDocument
 JsonDocument document = ...
 
@@ -143,10 +143,12 @@ String json = document.handle(new JsonTextJsonHandler(writer));
 ```
 
 
-[AppendingJsonTextJsonHandler]:  http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html
-[JsonHandler]:  http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/JsonHandler.html
-[JsonTextJsonHandler]:  http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html
-[XmlJsonHandler]:  http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/XmlJsonHandler.html
+[AppendingJsonTextJsonHandler]: https://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html
+[JsonHandler]: http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/JsonHandler.html
+[JsonTextJsonHandler]: http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html
+[XmlJsonHandler]: http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/XmlJsonHandler.html
+
+[JsonDocument]: https://markenwerk.github.io/java-utils-json-model/index.html?net/markenwerk/utils/json/JsonDocument.html
 
 [Appendable]: http://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Appendable.html
 [Document]: https://docs.oracle.com/javase/8/docs/api/index.html?org/w3c/dom/Document.html
