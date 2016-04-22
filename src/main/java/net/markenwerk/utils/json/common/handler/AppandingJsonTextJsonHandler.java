@@ -123,7 +123,7 @@ public final class AppandingJsonTextJsonHandler implements JsonHandler<Void> {
 
 	@Override
 	public final void onName(String name) throws JsonHandlingException {
-		writeUnescaped(indentation.getLineBreak(depth));
+		writeUnescaped(indentation.get(depth, true));
 		indented = true;
 		writeUnescaped("\"");
 		writeEscaped(name);
@@ -172,7 +172,7 @@ public final class AppandingJsonTextJsonHandler implements JsonHandler<Void> {
 
 	private final void writeIndentation() throws JsonHandlingException {
 		if (!indented) {
-			writeUnescaped(indentation.getLineBreak(depth));
+			writeUnescaped(indentation.get(depth, true));
 		}
 		indented = false;
 		empty = false;
