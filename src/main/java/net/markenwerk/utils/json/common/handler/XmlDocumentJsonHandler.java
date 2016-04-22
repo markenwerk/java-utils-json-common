@@ -29,10 +29,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import net.markenwerk.utils.json.common.exceptions.InvalidJsonValueException;
 import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
 
 /**
- * A {@link XmlJsonHandler} is a {@link JsonHandler} that creates a XML
+ * A {@link XmlDocumentJsonHandler} is a {@link JsonHandler} that creates a XML
  * {@link Document} that represents the same data as the handled JSON document
  * using the following rules:
  * 
@@ -43,13 +44,13 @@ import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
  * name of the JSON object entry is represented as an attribute with name
  * {@code name}.</li>
  * <li>A JSON null is represented as a tag with name {@code null}.</li>
- * <li>A JSON boolean is represented as a tag with name {@code false} or
- * {@code true}.</li>
- * <li>A JSON number (long or double) is represented as a tag with name
- * {@code number}. The numerical value is represented as the text content of
- * this tag.</li>
- * <li>A JSON string is represented as a tag with name {@code string}. The
- * textual value is represented as the text content of this tag.</li>
+ * <li>A JSON boolean is represented as a tag with name {@code boolean}. The
+ * value of the JSON boolean represented as an attribute with name {@code value}
+ * .</li>
+ * <li>A JSON number is represented as a tag with name {@code number}. The value
+ * of the JSON number represented as an attribute with name {@code value}.</li>
+ * <li>A JSON string is represented as a tag with name {@code string}. The value
+ * of the JSON string represented as an attribute with name {@code value} .</li>
  * </ul>
  * 
  * <p>
@@ -105,20 +106,20 @@ import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class XmlJsonHandler implements JsonHandler<Document> {
+public final class XmlDocumentJsonHandler extends IdleJsonHandler<Document> {
 
 	private final Document document;
 
 	private Node node;
 
 	/**
-	 * Creates a new {@link XmlJsonHandler} using a @link
+	 * Creates a new {@link XmlDocumentJsonHandler} using a @link
 	 * {@link DocumentBuilderFactory#newDocumentBuilder() default}
 	 * {@link DocumentBuilder} created by a
 	 * {@link DocumentBuilderFactory#newInstance() default}
 	 * {@link DocumentBuilderFactory}.
 	 */
-	public XmlJsonHandler() {
+	public XmlDocumentJsonHandler() {
 		this(createDocumentBuilder());
 	}
 
@@ -131,7 +132,7 @@ public final class XmlJsonHandler implements JsonHandler<Document> {
 	}
 
 	/**
-	 * Create a new {@link XmlJsonHandler} using the given
+	 * Create a new {@link XmlDocumentJsonHandler} using the given
 	 * {@link DocumentBuilder} to create a new XML {@link Document}.
 	 * 
 	 * @param documentBuilder
@@ -139,7 +140,7 @@ public final class XmlJsonHandler implements JsonHandler<Document> {
 	 * @throws IllegalArgumentException
 	 *             If the given {@link DocumentBuilder} is {@literal null}.
 	 */
-	public XmlJsonHandler(DocumentBuilder documentBuilder) throws IllegalArgumentException {
+	public XmlDocumentJsonHandler(DocumentBuilder documentBuilder) throws IllegalArgumentException {
 		if (null == documentBuilder) {
 			throw new IllegalArgumentException("documentBuilder is null");
 		}
@@ -205,28 +206,31 @@ public final class XmlJsonHandler implements JsonHandler<Document> {
 
 	@Override
 	public void onBoolean(boolean value) throws JsonHandlingException {
-		Element element = document.createElement(value ? "true" : "false");
+		Element element = document.createElement("boolean");
+		element.setAttribute("value", value ? "true" : "false");
 		appendChild(element);
 	}
 
 	@Override
 	public void onLong(long value) throws JsonHandlingException {
 		Element element = document.createElement("number");
-		element.appendChild(document.createTextNode(Long.toString(value)));
+		element.setAttribute("value", Long.toString(value));
 		appendChild(element);
 	}
 
 	@Override
-	public void onDouble(double value) throws JsonHandlingException {
+	public void onDouble(double value) throws InvalidJsonValueException, JsonHandlingException {
+		checkDoubleValue(value);
 		Element element = document.createElement("number");
-		element.appendChild(document.createTextNode(Double.toString(value)));
+		element.setAttribute("value", Double.toString(value));
 		appendChild(element);
 	}
 
 	@Override
-	public void onString(String value) throws JsonHandlingException {
+	public void onString(String value) throws InvalidJsonValueException, JsonHandlingException {
+		checkStringValue(value);
 		Element element = document.createElement("string");
-		element.appendChild(document.createTextNode(value));
+		element.setAttribute("value", value);
 		appendChild(element);
 	}
 

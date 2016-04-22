@@ -21,6 +21,7 @@
  */
 package net.markenwerk.utils.json.common.handler;
 
+import net.markenwerk.utils.json.common.exceptions.InvalidJsonValueException;
 import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
 
 /**
@@ -113,12 +114,13 @@ public interface JsonHandler<Result> {
 	 * Called when the parsing of a JSON object encountered the name for the
 	 * next JSON value.
 	 * 
+	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link JsonHandlingException}.
+	 * 
 	 * @param name
 	 *            The name for the next JSON value.
 	 * 
-	 *            <p>
-	 *            Implementers should catch any exception and wrap them in a
-	 *            {@link JsonHandlingException}.
 	 * 
 	 * @throws JsonHandlingException
 	 *             If the handling failed.
@@ -153,12 +155,12 @@ public interface JsonHandler<Result> {
 	/**
 	 * Called when the parsing of a JSON object encountered a JSON boolean.
 	 * 
+	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link JsonHandlingException}.
+	 * 
 	 * @param value
 	 *            The value of the JSON boolean.
-	 * 
-	 *            <p>
-	 *            Implementers should catch any exception and wrap them in a
-	 *            {@link JsonHandlingException}.
 	 * 
 	 * @throws JsonHandlingException
 	 *             If the handling failed.
@@ -169,12 +171,13 @@ public interface JsonHandler<Result> {
 	 * Called when the parsing of a JSON object encountered a JSON number, that
 	 * represents an integer value.
 	 * 
+	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link JsonHandlingException}.
+	 * 
 	 * @param value
 	 *            The value of the JSON number.
 	 * 
-	 *            <p>
-	 *            Implementers should catch any exception and wrap them in a
-	 *            {@link JsonHandlingException}.
 	 * 
 	 * @throws JsonHandlingException
 	 *             If the handling failed.
@@ -185,41 +188,46 @@ public interface JsonHandler<Result> {
 	 * Called when the parsing of a JSON object encountered a JSON number, that
 	 * represents a decimal value.
 	 * 
+	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link JsonHandlingException}.
+	 * 
 	 * @param value
 	 *            The value of the JSON number.
 	 * 
-	 *            <p>
-	 *            Implementers should catch any exception and wrap them in a
-	 *            {@link JsonHandlingException}.
-	 * 
+	 * @throws InvalidJsonValueException
+	 *             If the given value is {@link Double#isNaN(double) not a
+	 *             number} or {@link Double#isInfinite(double) infinite}.
 	 * @throws JsonHandlingException
 	 *             If the handling failed.
 	 */
-	public void onDouble(double value) throws JsonHandlingException;
+	public void onDouble(double value) throws InvalidJsonValueException, JsonHandlingException;
 
 	/**
 	 * Called when the parsing of a JSON object encountered a JSON string.
 	 * 
+	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link JsonHandlingException}.
+	 * 
 	 * @param value
 	 *            The value of the JSON string.
 	 * 
-	 *            <p>
-	 *            Implementers should catch any exception and wrap them in a
-	 *            {@link JsonHandlingException}.
-	 * 
+	 * @throws InvalidJsonValueException
+	 *             If the given value is {@literal null}.
 	 * @throws JsonHandlingException
 	 *             If the handling failed.
 	 */
-	public void onString(String value) throws JsonHandlingException;
+	public void onString(String value) throws InvalidJsonValueException, JsonHandlingException;
 
 	/**
 	 * Returns the calculated result.
 	 * 
-	 * @return The calculated result.
+	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link JsonHandlingException}.
 	 * 
-	 *         <p>
-	 *         Implementers should catch any exception and wrap them in a
-	 *         {@link JsonHandlingException}.
+	 * @return The calculated result.
 	 * 
 	 * @throws JsonHandlingException
 	 *             If the handling failed.

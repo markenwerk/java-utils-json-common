@@ -23,6 +23,7 @@ package net.markenwerk.utils.json.common.handler;
 
 import java.io.IOException;
 
+import net.markenwerk.utils.json.common.exceptions.InvalidJsonValueException;
 import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
 import net.markenwerk.utils.text.indentation.Indentation;
 
@@ -35,7 +36,7 @@ import net.markenwerk.utils.text.indentation.Indentation;
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class AppandingJsonTextJsonHandler implements JsonHandler<Void> {
+public final class AppandingJsonTextJsonHandler extends IdleJsonHandler<Void> {
 
 	private final Appendable appendable;
 
@@ -157,13 +158,15 @@ public final class AppandingJsonTextJsonHandler implements JsonHandler<Void> {
 	}
 
 	@Override
-	public final void onDouble(double value) throws JsonHandlingException {
+	public final void onDouble(double value) throws InvalidJsonValueException, JsonHandlingException {
+		checkDoubleValue(value);
 		writeIndentation();
 		writeUnescaped(Double.toString(value));
 	}
 
 	@Override
 	public final void onString(String value) throws JsonHandlingException {
+		checkStringValue(value);
 		writeIndentation();
 		writeUnescaped("\"");
 		writeEscaped(value);

@@ -21,17 +21,18 @@
  */
 package net.markenwerk.utils.json.common.handler;
 
+import net.markenwerk.utils.json.common.exceptions.InvalidJsonValueException;
 import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
 import net.markenwerk.utils.text.indentation.Indentation;
 
 /**
- * A {@link JsonTextJsonHandler} is a {@link JsonHandler} that calculates
- * a pretty JSON text for the handled JSON document as a result.
+ * A {@link JsonTextJsonHandler} is a {@link JsonHandler} that calculates a
+ * pretty JSON text for the handled JSON document as a result.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class JsonTextJsonHandler implements JsonHandler<String> {
+public final class JsonTextJsonHandler extends IdleJsonHandler<String> {
 
 	private final StringBuilder builder;
 
@@ -121,7 +122,7 @@ public final class JsonTextJsonHandler implements JsonHandler<String> {
 	}
 
 	@Override
-	public void onDouble(double value) throws JsonHandlingException {
+	public void onDouble(double value) throws InvalidJsonValueException, JsonHandlingException {
 		handler.onDouble(value);
 	}
 
