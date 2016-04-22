@@ -81,16 +81,16 @@ import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
  *       <null />
  *    </entry>
  *    <entry name="booleanValue">
- *       <true />
+ *       <boolean value="true" />
  *    </entry>
  *    <entry name="longValue">
- *       <number>-10000</number>
+ *       <number value="-10000"/>
  *    </entry>
  *    <entry name="doubleValue">
- *       <number>42.23</number>
+ *       <number value="42.23" />
  *    </entry>
  *    <entry name="stringValue">
- *       <string>foobar</string>
+ *       <string value="foobar">
  *    </entry>
  *    <entry name="arrayValue">
  *       <array />
