@@ -11,7 +11,7 @@
 
 This library provides common components for other JSON processing libraries, such as:
 
- - [A fast event based JSON parser for Java](https://github.com/markenwerk/java-utils-json-common)
+ - [A fast event based JSON parser for Java](https://github.com/markenwerk/java-utils-json-parser)
  - [A convenient JSON domain model for Java](https://github.com/markenwerk/java-utils-json-model)
 
 Consult the [documentation](http://markenwerk.github.io/java-utils-json-common/javadoc/index.html) and the [usage description](#usage) for further information.
