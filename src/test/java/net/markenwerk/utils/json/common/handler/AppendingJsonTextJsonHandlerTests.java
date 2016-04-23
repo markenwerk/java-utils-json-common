@@ -380,4 +380,41 @@ public class AppendingJsonTextJsonHandlerTests {
 
 	}
 
+	@Test
+	public void onDocument_defaultIndentation() {
+
+		JsonHandler<Void> handler = new AppendingJsonTextJsonHandler(builder);
+
+		handler.onDocumentBegin();
+		handler.onObjectBegin();
+		handler.onName("n");
+		handler.onNull();
+		handler.onNext();
+		handler.onName("b");
+		handler.onBoolean(true);
+		handler.onObjectEnd();
+		handler.onDocumentEnd();
+
+		String result = builder.toString();
+		String lineBreak = System.getProperty("line.separator");
+
+		Assert.assertEquals("{" + lineBreak + "\t\"n\": null," + lineBreak + "\t\"b\": true" + lineBreak + "}", result);
+
+	}
+
+	@Test
+	public void getResult_isNull() {
+
+		JsonHandler<Void> handler = new AppendingJsonTextJsonHandler(builder, INDENTATION);
+
+		handler.onDocumentBegin();
+		handler.onNull();
+		handler.onDocumentEnd();
+
+		Void result = handler.getResult();
+
+		Assert.assertNull(result);
+
+	}
+
 }

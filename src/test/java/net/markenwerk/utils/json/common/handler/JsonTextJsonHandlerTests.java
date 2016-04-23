@@ -231,7 +231,7 @@ public class JsonTextJsonHandlerTests {
 		Assert.assertEquals("\"__\\\"_\\\\_\\/_\\b_\\f_\\n_\\r_\\t__\"", result);
 
 	}
-	
+
 	@Test
 	public void onString_controllEscapeSequances() {
 
@@ -360,6 +360,28 @@ public class JsonTextJsonHandlerTests {
 		String result = handler.getResult();
 
 		Assert.assertEquals("{\"n\":null,\"b\":true,\"l\":-42,\"d\":-23.42,\"a\":[\"foo\",\"bar\"]}", result);
+
+	}
+
+	@Test
+	public void onDocument_defaultIndentation() {
+
+		JsonHandler<String> handler = new JsonTextJsonHandler();
+
+		handler.onDocumentBegin();
+		handler.onObjectBegin();
+		handler.onName("n");
+		handler.onNull();
+		handler.onNext();
+		handler.onName("b");
+		handler.onBoolean(true);
+		handler.onObjectEnd();
+		handler.onDocumentEnd();
+
+		String result = handler.getResult();
+		String lineBreak = System.getProperty("line.separator");
+
+		Assert.assertEquals("{" + lineBreak + "\t\"n\": null," + lineBreak + "\t\"b\": true" + lineBreak + "}", result);
 
 	}
 

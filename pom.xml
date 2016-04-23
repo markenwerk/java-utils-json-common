@@ -255,7 +255,7 @@
 						<version>0.7.6.201602180812</version>
 						<configuration>
 							<excludes>
-								<exclude>**/JsonSyntaxError.java</exclude>
+								<exclude>**/JsonSyntaxError.*</exclude>
 								<exclude>**/Idle*.*</exclude>
 								<exclude>**/Null*.*</exclude>
 								<exclude>**/*Exception.*</exclude>
