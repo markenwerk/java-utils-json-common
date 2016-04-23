@@ -21,46 +21,46 @@
  */
 package net.markenwerk.utils.json.common.handler;
 
+import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
 import net.markenwerk.utils.text.indentation.Indentation;
 
 /**
- * A {@link JsonTextJsonHandler} is a {@link JsonHandler} that calculates a
- * pretty JSON text for the handled JSON document as a result.
+ * A {@link AppendingJsonTextJsonHandler} is a
+ * {@link AbstractAppendingJsonTextJsonHandler} that appends the handled JSON
+ * document as a pretty JSON text to a given {@link Appendable} and calculates
+ * no result.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class JsonTextJsonHandler extends AbstractAppendingJsonTextJsonHandler<StringBuilder, String> {
+public final class AppendingJsonTextJsonHandler extends AbstractAppendingJsonTextJsonHandler<Appendable, Void> {
 
 	/**
-	 * Creates a new {@link JsonTextJsonHandler} using the
-	 * {@link Indentation#DEFAULT default} Indentation.
+	 * Creates a new {@link AppendingJsonTextJsonHandler} using the
+	 * {@link Indentation#DEFAULT} {@link Indentation}.
 	 * 
-	 * 
-	 * @throws IllegalArgumentException
-	 *            If the given {@link Appendable} is {@literal null}.
+	 * @param appendable
+	 *           The {@link Appendable} to be used.
 	 */
-	public JsonTextJsonHandler() throws IllegalArgumentException {
-		this(Indentation.DEFAULT);
+	public AppendingJsonTextJsonHandler(Appendable appendable) {
+		this(appendable, Indentation.DEFAULT);
 	}
 
 	/**
-	 * Creates a new {@link JsonTextJsonHandler}.
+	 * Creates a new {@link AppendingJsonTextJsonHandler}.
 	 * 
+	 * @param appendable
+	 *           The {@link Appendable} to be used.
 	 * @param indentation
 	 *           The {@link Indentation} to be used.
-	 * 
-	 * @throws IllegalArgumentException
-	 *            If the given {@link Appendable} is {@literal null} or if the
-	 *            given {@link Indentation} is {@literal null}.
 	 */
-	public JsonTextJsonHandler(Indentation indentation) {
-		super(new StringBuilder(), indentation);
+	public AppendingJsonTextJsonHandler(Appendable appendable, Indentation indentation) {
+		super(appendable, indentation);
 	}
 
 	@Override
-	public String getResult() {
-		return getAppendable().toString();
+	public Void getResult() throws JsonHandlingException {
+		return null;
 	}
 
 }

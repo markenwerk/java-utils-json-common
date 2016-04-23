@@ -26,7 +26,7 @@ package net.markenwerk.utils.json.common.exceptions;
  * handling of a JSON document or a JSON value failed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
- * @since 1.1.0
+ * @since 1.0.0
  */
 public final class JsonHandlingException extends JsonException {
 
