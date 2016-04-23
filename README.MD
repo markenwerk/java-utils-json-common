@@ -30,25 +30,11 @@ This library is hosted in the [Maven Central Repository](https://maven-badges.he
  
 ## Usage
 
-Here is a small JSON document that is used in the following code examples:
-```json
-{
-	"null" : null,
-	"boolean" : true,
-	"long" : -42,
-	"double" : -23.42,
-	"array" : [
-		"foo",
-		"bar"
-	],
-}
-```
-
 ### Handling JSON documents
 
 This library provides the [`JsonHandler`][JsonHandler] interface which provides a collection of callback methods that can be called (e.g. by a JSON parser or by domain model for JSON documents) to describe a JSON document and calculates a result for the described JSON document.
 
-The following sequence of callback methods describes the example JSON document.
+The following sequence of callback methods describes the [`example.json`](https://gist.github.com/toKrause/208992e7625f0b8a9d04e7283f09fc26).
 
 ```java
 // a generic JsonHandler
@@ -154,7 +140,7 @@ JsonDocument document = ...
 Document xmlDocument = document.handle(new XmlDocumentJsonHandler());
 ```
 
-The returned XML [`Document`][Document] has the following content:
+The returned XML [`Document`][Document] for the [`example.json`](https://gist.github.com/toKrause/208992e7625f0b8a9d04e7283f09fc26)has the following content:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
