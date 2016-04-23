@@ -74,20 +74,31 @@
 </a>
 <h2 class="title">A</h2>
 <dl>
-<dt><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><span class="typeNameLink">AppandingJsonTextJsonHandler</span></a> - Class in <a href="net/markenwerk/utils/json/common/handler/package-summary.html">net.markenwerk.utils.json.common.handler</a></dt>
+<dt><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><span class="typeNameLink">AbstractAppendingJsonTextJsonHandler</span></a>&lt;<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="type parameter in AbstractAppendingJsonTextJsonHandler">ActualAppendable</a> extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a>,<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="type parameter in AbstractAppendingJsonTextJsonHandler">Result</a>&gt; - Class in <a href="net/markenwerk/utils/json/common/handler/package-summary.html">net.markenwerk.utils.json.common.handler</a></dt>
 <dd>
-<div class="block">A <a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><code>AppandingJsonTextJsonHandler</code></a> is a <a href="net/markenwerk/utils/json/common/handler/JsonHandler.html" title="interface in net.markenwerk.utils.json.common.handler"><code>JsonHandler</code></a> that appends
- the handled JSON document as a pretty JSON text to a given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a>
- .</div>
+<div class="block">A <a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><code>AbstractAppendingJsonTextJsonHandler</code></a> is a <a href="net/markenwerk/utils/json/common/handler/JsonHandler.html" title="interface in net.markenwerk.utils.json.common.handler"><code>JsonHandler</code></a> that
+ appends the handled JSON document as a pretty JSON text to a given
+ <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#AppandingJsonTextJsonHandler-java.lang.Appendable-">AppandingJsonTextJsonHandler(Appendable)</a></span> - Constructor for class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#AbstractAppendingJsonTextJsonHandler-ActualAppendable-net.markenwerk.utils.text.indentation.Indentation-">AbstractAppendingJsonTextJsonHandler(ActualAppendable, Indentation)</a></span> - Constructor for class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>
-<div class="block">Creates a new <a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><code>AppandingJsonTextJsonHandler</code></a> using the
+<div class="block">Creates a new <a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><code>AbstractAppendingJsonTextJsonHandler</code></a>.</div>
+</dd>
+<dt><a href="net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><span class="typeNameLink">AppendingJsonTextJsonHandler</span></a> - Class in <a href="net/markenwerk/utils/json/common/handler/package-summary.html">net.markenwerk.utils.json.common.handler</a></dt>
+<dd>
+<div class="block">A <a href="net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><code>AppendingJsonTextJsonHandler</code></a> is a
+ <a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><code>AbstractAppendingJsonTextJsonHandler</code></a> that appends the handled JSON
+ document as a pretty JSON text to a given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a> and calculates
+ no result.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html#AppendingJsonTextJsonHandler-java.lang.Appendable-">AppendingJsonTextJsonHandler(Appendable)</a></span> - Constructor for class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppendingJsonTextJsonHandler</a></dt>
+<dd>
+<div class="block">Creates a new <a href="net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><code>AppendingJsonTextJsonHandler</code></a> using the
  <code>Indentation.DEFAULT</code> <code>Indentation</code>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#AppandingJsonTextJsonHandler-java.lang.Appendable-net.markenwerk.utils.text.indentation.Indentation-">AppandingJsonTextJsonHandler(Appendable, Indentation)</a></span> - Constructor for class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html#AppendingJsonTextJsonHandler-java.lang.Appendable-net.markenwerk.utils.text.indentation.Indentation-">AppendingJsonTextJsonHandler(Appendable, Indentation)</a></span> - Constructor for class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppendingJsonTextJsonHandler</a></dt>
 <dd>
-<div class="block">Creates a new <a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><code>AppandingJsonTextJsonHandler</code></a>.</div>
+<div class="block">Creates a new <a href="net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><code>AppendingJsonTextJsonHandler</code></a>.</div>
 </dd>
 </dl>
 <a name="I:C">
@@ -109,6 +120,11 @@
 </a>
 <h2 class="title">G</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#getAppendable--">getAppendable()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
+<dd>
+<div class="block">Returns the <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a> this
+ <a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler"><code>AbstractAppendingJsonTextJsonHandler</code></a> has been created with.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/exceptions/JsonSyntaxException.html#getColumn--">getColumn()</a></span> - Method in exception net.markenwerk.utils.json.common.exceptions.<a href="net/markenwerk/utils/json/common/exceptions/JsonSyntaxException.html" title="class in net.markenwerk.utils.json.common.exceptions">JsonSyntaxException</a></dt>
 <dd>
 <div class="block">Returns the column in the JSON document, where the syntax error occurred.</div>
@@ -142,7 +158,7 @@
 <div class="block">Returns a few characters from the parsed character stream, that came
  before the syntax error, if still cached.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#getResult--">getResult()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html#getResult--">getResult()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#getResult--">getResult()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -340,7 +356,7 @@
 </a>
 <h2 class="title">O</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onArrayBegin--">onArrayBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onArrayBegin--">onArrayBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onArrayBegin--">onArrayBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -348,11 +364,9 @@
 <dd>
 <div class="block">Called when the parsing of a JSON array started.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onArrayBegin--">onArrayBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onArrayBegin--">onArrayBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onArrayEnd--">onArrayEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onArrayEnd--">onArrayEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onArrayEnd--">onArrayEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -360,11 +374,9 @@
 <dd>
 <div class="block">Called when the parsing of a JSON array ended.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onArrayEnd--">onArrayEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onArrayEnd--">onArrayEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onBoolean-boolean-">onBoolean(boolean)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onBoolean-boolean-">onBoolean(boolean)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onBoolean-boolean-">onBoolean(boolean)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -372,11 +384,9 @@
 <dd>
 <div class="block">Called when the parsing of a JSON object encountered a JSON boolean.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onBoolean-boolean-">onBoolean(boolean)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onBoolean-boolean-">onBoolean(boolean)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onDocumentBegin--">onDocumentBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onDocumentBegin--">onDocumentBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onDocumentBegin--">onDocumentBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -384,11 +394,9 @@
 <dd>
 <div class="block">Called when the parsing of a JSON document started.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onDocumentBegin--">onDocumentBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onDocumentBegin--">onDocumentBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onDocumentEnd--">onDocumentEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onDocumentEnd--">onDocumentEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onDocumentEnd--">onDocumentEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -396,11 +404,9 @@
 <dd>
 <div class="block">Called when the parsing of a JSON document ended.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onDocumentEnd--">onDocumentEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onDocumentEnd--">onDocumentEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onDouble-double-">onDouble(double)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onDouble-double-">onDouble(double)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onDouble-double-">onDouble(double)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -409,11 +415,9 @@
 <div class="block">Called when the parsing of a JSON object encountered a JSON number, that
  represents a decimal value.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onDouble-double-">onDouble(double)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onDouble-double-">onDouble(double)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onLong-long-">onLong(long)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onLong-long-">onLong(long)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onLong-long-">onLong(long)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -422,11 +426,9 @@
 <div class="block">Called when the parsing of a JSON object encountered a JSON number, that
  represents an integer value.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onLong-long-">onLong(long)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onLong-long-">onLong(long)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onName-java.lang.String-">onName(String)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onName-java.lang.String-">onName(String)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onName-java.lang.String-">onName(String)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -435,11 +437,9 @@
 <div class="block">Called when the parsing of a JSON object encountered the name for the
  next JSON value.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onName-java.lang.String-">onName(String)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onName-java.lang.String-">onName(String)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onNext--">onNext()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onNext--">onNext()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onNext--">onNext()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -448,11 +448,9 @@
 <div class="block">Called when the parsing of a JSON array or JSON object encountered
  another element.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onNext--">onNext()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onNext--">onNext()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onNull--">onNull()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onNull--">onNull()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onNull--">onNull()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -460,11 +458,9 @@
 <dd>
 <div class="block">Called when the parsing of a JSON object encountered a JSON null.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onNull--">onNull()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onNull--">onNull()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onObjectBegin--">onObjectBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onObjectBegin--">onObjectBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onObjectBegin--">onObjectBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -472,11 +468,9 @@
 <dd>
 <div class="block">Called when the parsing of a JSON object started.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onObjectBegin--">onObjectBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onObjectBegin--">onObjectBegin()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onObjectEnd--">onObjectEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onObjectEnd--">onObjectEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onObjectEnd--">onObjectEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -484,11 +478,9 @@
 <dd>
 <div class="block">Called when the parsing of a JSON object ended.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onObjectEnd--">onObjectEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onObjectEnd--">onObjectEnd()</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html#onString-java.lang.String-">onString(String)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AppandingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AppandingJsonTextJsonHandler</a></dt>
+<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html#onString-java.lang.String-">onString(String)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/AbstractAppendingJsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">AbstractAppendingJsonTextJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html#onString-java.lang.String-">onString(String)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/IdleJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">IdleJsonHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -496,8 +488,6 @@
 <dd>
 <div class="block">Called when the parsing of a JSON object encountered a JSON string.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html#onString-java.lang.String-">onString(String)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">JsonTextJsonHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html#onString-java.lang.String-">onString(String)</a></span> - Method in class net.markenwerk.utils.json.common.handler.<a href="net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html" title="class in net.markenwerk.utils.json.common.handler">XmlDocumentJsonHandler</a></dt>
 <dd>&nbsp;</dd>
 </dl>
