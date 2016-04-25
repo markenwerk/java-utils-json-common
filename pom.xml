@@ -155,6 +155,9 @@
 				<version>2.10.3</version>
 				<configuration>
 					<notimestamp>true</notimestamp>
+					<links>
+						<link>https://markenwerk.github.io/java-utils-text-indentation/</link>
+					</links>
 				</configuration>
 				<executions>
 					<execution>
