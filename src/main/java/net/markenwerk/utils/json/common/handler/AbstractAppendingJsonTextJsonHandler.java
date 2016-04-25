@@ -95,7 +95,7 @@ public abstract class AbstractAppendingJsonTextJsonHandler<ActualAppendable exte
 	@Override
 	public final void onArrayBegin() throws JsonHandlingException {
 		writeIndentation();
-		writeUnescaped("[");
+		appendUnescaped("[");
 		depth++;
 		empty = true;
 	}
@@ -107,13 +107,13 @@ public abstract class AbstractAppendingJsonTextJsonHandler<ActualAppendable exte
 			writeIndentation();
 		}
 		empty = false;
-		writeUnescaped("]");
+		appendUnescaped("]");
 	}
 
 	@Override
 	public final void onObjectBegin() throws JsonHandlingException {
 		writeIndentation();
-		writeUnescaped("{");
+		appendUnescaped("{");
 		depth++;
 		empty = true;
 	}
@@ -125,69 +125,69 @@ public abstract class AbstractAppendingJsonTextJsonHandler<ActualAppendable exte
 			writeIndentation();
 		}
 		empty = false;
-		writeUnescaped("}");
+		appendUnescaped("}");
 	}
 
 	@Override
 	public final void onName(String name) throws JsonHandlingException {
-		writeUnescaped(indentation.get(depth, true));
+		appendUnescaped(indentation.get(depth, true));
 		indented = true;
-		writeUnescaped("\"");
-		writeEscaped(name);
-		writeUnescaped("\":");
+		appendUnescaped("\"");
+		appendEscaped(name);
+		appendUnescaped("\":");
 		if (indentation.isVisible()) {
-			writeUnescaped(" ");
+			appendUnescaped(" ");
 		}
 	}
 
 	@Override
 	public final void onNext() throws JsonHandlingException {
-		writeUnescaped(",");
+		appendUnescaped(",");
 	}
 
 	@Override
 	public final void onNull() throws JsonHandlingException {
 		writeIndentation();
-		writeUnescaped("null");
+		appendUnescaped("null");
 	}
 
 	@Override
 	public final void onBoolean(boolean value) throws JsonHandlingException {
 		writeIndentation();
-		writeUnescaped(value ? "true" : "false");
+		appendUnescaped(value ? "true" : "false");
 	}
 
 	@Override
 	public final void onLong(long value) throws JsonHandlingException {
 		writeIndentation();
-		writeUnescaped(Long.toString(value));
+		appendUnescaped(Long.toString(value));
 	}
 
 	@Override
 	public final void onDouble(double value) throws InvalidJsonValueException, JsonHandlingException {
 		checkDoubleValue(value);
 		writeIndentation();
-		writeUnescaped(Double.toString(value));
+		appendUnescaped(Double.toString(value));
 	}
 
 	@Override
 	public final void onString(String value) throws JsonHandlingException {
 		checkStringValue(value);
 		writeIndentation();
-		writeUnescaped("\"");
-		writeEscaped(value);
-		writeUnescaped("\"");
+		appendUnescaped("\"");
+		appendEscaped(value);
+		appendUnescaped("\"");
 	}
 
 	private final void writeIndentation() throws JsonHandlingException {
 		if (!indented) {
-			writeUnescaped(indentation.get(depth, true));
+			appendUnescaped(indentation.get(depth, true));
 		}
 		indented = false;
 		empty = false;
 	}
 
-	private final void writeUnescaped(String string) throws JsonHandlingException {
+	private final void appendUnescaped(String string) throws JsonHandlingException {
 		try {
 			appendable.append(string);
 		} catch (IOException e) {
@@ -195,7 +195,7 @@ public abstract class AbstractAppendingJsonTextJsonHandler<ActualAppendable exte
 		}
 	}
 
-	private final void writeEscaped(String string) throws JsonHandlingException {
+	private final void appendEscaped(String string) throws JsonHandlingException {
 		try {
 			for (int i = 0, n = string.length(); i < n; i++) {
 				char character = string.charAt(i);

@@ -24,7 +24,7 @@ package net.markenwerk.utils.json.common.handler;
 import net.markenwerk.utils.text.indentation.Indentation;
 
 /**
- * A {@link JsonTextJsonHandler} is a {@link JsonHandler} that calculates a
+ * A {@link JsonTextJsonHandler} is a {@link AbstractAppendingJsonTextJsonHandler} that calculates a
  * pretty JSON text for the handled JSON document as a result.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
