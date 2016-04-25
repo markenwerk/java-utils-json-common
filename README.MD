@@ -172,7 +172,7 @@ The returned XML [`Document`][Document] for the [`example.json`](https://gist.gi
 [JsonTextJsonHandler]: http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/JsonTextJsonHandler.html
 [XmlDocumentJsonHandler]: http://markenwerk.github.io/java-utils-json-common/index.html?net/markenwerk/utils/json/common/handler/XmlDocumentJsonHandler.html
 
-[JsonDocument]: https://markenwerk.github.io/java-utils-json-model/index.html?net/markenwerk/utils/json/JsonDocument.html
+[JsonDocument]: https://markenwerk.github.io/java-utils-json-model/index.html?net/markenwerk/utils/json/model/JsonDocument.html
 
 [Appendable]: http://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Appendable.html
 [Document]: https://docs.oracle.com/javase/8/docs/api/index.html?org/w3c/dom/Document.html
