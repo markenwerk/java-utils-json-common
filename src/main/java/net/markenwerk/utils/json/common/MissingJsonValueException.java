@@ -19,48 +19,50 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.common.handler;
-
-import net.markenwerk.utils.json.common.exceptions.JsonHandlingException;
-import net.markenwerk.utils.text.indentation.Indentation;
+package net.markenwerk.utils.json.common;
 
 /**
- * A {@link AppendingJsonTextJsonHandler} is a
- * {@link AbstractAppendingJsonTextJsonHandler} that appends the handled JSON
- * document as a pretty JSON text to a given {@link Appendable} and calculates
- * no result.
+ * A {@link MissingJsonValueException} is a {@link JsonValueException} indicates
+ * that a JSON structure has no JSON value for a given index.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class AppendingJsonTextJsonHandler extends AbstractAppendingJsonTextJsonHandler<Appendable, Void> {
+public final class MissingJsonValueException extends JsonValueException {
+
+	private static final long serialVersionUID = -224463970528325073L;
 
 	/**
-	 * Creates a new {@link AppendingJsonTextJsonHandler} using the
-	 * {@link Indentation#DEFAULT} {@link Indentation}.
-	 * 
-	 * @param appendable
-	 *           The {@link Appendable} to be used.
+	 * Creates a new {@link MissingJsonValueException} with the given message
+	 * and cause.
+	 *
+	 * @param message
+	 *            The message.
+	 * @param cause
+	 *            The cause of this {@link MissingJsonValueException}.
 	 */
-	public AppendingJsonTextJsonHandler(Appendable appendable) {
-		this(appendable, Indentation.DEFAULT);
+	public MissingJsonValueException(String message, Throwable cause) {
+		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link AppendingJsonTextJsonHandler}.
-	 * 
-	 * @param appendable
-	 *           The {@link Appendable} to be used.
-	 * @param indentation
-	 *           The {@link Indentation} to be used.
+	 * Creates a new {@link MissingJsonValueException} with the given message.
+	 *
+	 * @param message
+	 *            The message.
 	 */
-	public AppendingJsonTextJsonHandler(Appendable appendable, Indentation indentation) {
-		super(appendable, indentation);
+	public MissingJsonValueException(String message) {
+		super(message);
 	}
 
-	@Override
-	public Void getResult() throws JsonHandlingException {
-		return null;
+	/**
+	 * Creates a new {@link MissingJsonValueException} with the given cause.
+	 *
+	 * @param cause
+	 *            The cause of this {@link MissingJsonValueException}.
+	 */
+	public MissingJsonValueException(Throwable cause) {
+		super(null == cause ? null : cause.getMessage(), cause);
 	}
 
 }

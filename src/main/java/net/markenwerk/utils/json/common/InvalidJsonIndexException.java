@@ -19,35 +19,50 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.common.handler;
-
-import net.markenwerk.utils.text.indentation.Indentation;
+package net.markenwerk.utils.json.common;
 
 /**
- * A {@link JavaTextJsonHandler} is a
- * {@link AbstractAppendingJavaTextJsonHandler} that calculates a text, that
- * mimics the {@link Object#toString()} behavior of Javas collection classes,
- * for the handled JSON document as a result.
+ * A {@link InvalidJsonIndexException} is a {@link JsonException} indicates that
+ * a given index value is not valid for a given JSON structure.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class JavaTextJsonHandler extends AbstractAppendingJavaTextJsonHandler<StringBuilder, String> {
+public final class InvalidJsonIndexException extends JsonException {
+
+	private static final long serialVersionUID = -224463970528325073L;
 
 	/**
-	 * Creates a new {@link JavaTextJsonHandler}.
-	 * 
-	 * @throws IllegalArgumentException
-	 *             If the given {@link Appendable} is {@literal null} or if the
-	 *             given {@link Indentation} is {@literal null}.
+	 * Creates a new {@link InvalidJsonIndexException} with the given message
+	 * and cause.
+	 *
+	 * @param message
+	 *            The message.
+	 * @param cause
+	 *            The cause of this {@link InvalidJsonIndexException}.
 	 */
-	public JavaTextJsonHandler() {
-		super(new StringBuilder());
+	public InvalidJsonIndexException(String message, Throwable cause) {
+		super(message, cause);
 	}
 
-	@Override
-	public String getResult() {
-		return getAppendable().toString();
+	/**
+	 * Creates a new {@link InvalidJsonIndexException} with the given message.
+	 *
+	 * @param message
+	 *            The message.
+	 */
+	public InvalidJsonIndexException(String message) {
+		super(message);
+	}
+
+	/**
+	 * Creates a new {@link InvalidJsonIndexException} with the given cause.
+	 *
+	 * @param cause
+	 *            The cause of this {@link InvalidJsonIndexException}.
+	 */
+	public InvalidJsonIndexException(Throwable cause) {
+		super(null == cause ? null : cause.getMessage(), cause);
 	}
 
 }

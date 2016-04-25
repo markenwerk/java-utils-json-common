@@ -19,49 +19,49 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.common.exceptions;
+package net.markenwerk.utils.json.common;
 
 /**
- * A {@link MissingJsonValueException} is a {@link JsonValueException} indicates
- * that a JSON structure has no JSON value for a given index.
+ * A {@link JsonValueException} is a {@link JsonException} indicates that a JSON
+ * value couldn't be processed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class MissingJsonValueException extends JsonValueException {
+public abstract class JsonValueException extends JsonException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 
 	/**
-	 * Creates a new {@link MissingJsonValueException} with the given message
-	 * and cause.
+	 * Creates a new {@link JsonValueException} with the given message and
+	 * cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link MissingJsonValueException}.
+	 *            The cause of this {@link JsonValueException}.
 	 */
-	public MissingJsonValueException(String message, Throwable cause) {
+	public JsonValueException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link MissingJsonValueException} with the given message.
+	 * Creates a new {@link JsonValueException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public MissingJsonValueException(String message) {
+	public JsonValueException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link MissingJsonValueException} with the given cause.
+	 * Creates a new {@link JsonValueException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link MissingJsonValueException}.
+	 *            The cause of this {@link JsonValueException}.
 	 */
-	public MissingJsonValueException(Throwable cause) {
+	public JsonValueException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

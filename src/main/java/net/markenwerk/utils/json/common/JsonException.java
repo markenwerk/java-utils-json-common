@@ -19,14 +19,48 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.common.handler;
+package net.markenwerk.utils.json.common;
 
 /**
- * A {@link NullJsonHandler} is an {@link IdleJsonHandler} that does nothing.
+ * A {@link JsonException} indicates that a JSON related operation failed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class NullJsonHandler extends IdleJsonHandler<Void> {
+public abstract class JsonException extends RuntimeException {
+
+	private static final long serialVersionUID = -224463970528325073L;
+
+	/**
+	 * Creates a new {@link JsonException} with the given message and cause.
+	 *
+	 * @param message
+	 *            The message.
+	 * @param cause
+	 *            The cause of this {@link JsonException}.
+	 */
+	public JsonException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	/**
+	 * Creates a new {@link JsonException} with the given message.
+	 *
+	 * @param message
+	 *            The message.
+	 */
+	public JsonException(String message) {
+		super(message);
+	}
+
+	/**
+	 * Creates a new {@link JsonException} with the given cause.
+	 *
+	 * @param cause
+	 *            The cause of this {@link JsonException}.
+	 */
+	public JsonException(Throwable cause) {
+		super(null == cause ? null : cause.getMessage(), cause);
+	}
 
 }

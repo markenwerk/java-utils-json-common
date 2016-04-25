@@ -19,47 +19,49 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.common.exceptions;
+package net.markenwerk.utils.json.common;
 
 /**
- * A {@link JsonException} indicates that a JSON related operation failed.
+ * A {@link JsonHandlingException} is a {@link JsonException} that indicates that the
+ * handling of a JSON document or a JSON value failed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public abstract class JsonException extends RuntimeException {
+public final class JsonHandlingException extends JsonException {
 
-	private static final long serialVersionUID = -224463970528325073L;
+	private static final long serialVersionUID = -290339970597461477L;
 
 	/**
-	 * Creates a new {@link JsonException} with the given message and cause.
+	 * Creates a new {@link JsonHandlingException} with the given message and
+	 * cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link JsonException}.
+	 *            The cause of this {@link JsonHandlingException}.
 	 */
-	public JsonException(String message, Throwable cause) {
+	public JsonHandlingException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link JsonException} with the given message.
+	 * Creates a new {@link JsonHandlingException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public JsonException(String message) {
+	public JsonHandlingException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link JsonException} with the given cause.
+	 * Creates a new {@link JsonHandlingException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link JsonException}.
+	 *            The cause of this {@link JsonHandlingException}.
 	 */
-	public JsonException(Throwable cause) {
+	public JsonHandlingException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.utils.json.common.exceptions;
+package net.markenwerk.utils.json.common;
 
 /**
  * A {@link JsonSyntaxException} is a {@link JsonException} that indicates that
