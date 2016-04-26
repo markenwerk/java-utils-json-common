@@ -269,8 +269,6 @@
 						<configuration>
 							<excludes>
 								<exclude>**/JsonSyntaxError.*</exclude>
-								<exclude>**/Idle*.*</exclude>
-								<exclude>**/Null*.*</exclude>
 								<exclude>**/*Exception.*</exclude>
 							</excludes>
 						</configuration>
