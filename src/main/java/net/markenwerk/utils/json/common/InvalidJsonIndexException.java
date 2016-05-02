@@ -22,13 +22,13 @@
 package net.markenwerk.utils.json.common;
 
 /**
- * A {@link InvalidJsonIndexException} is a {@link JsonException} indicates that
+ * A {@link InvalidJsonIndexException} is a {@link JsonException} that indicates that
  * a given index value is not valid for a given JSON structure.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class InvalidJsonIndexException extends JsonException {
+public class InvalidJsonIndexException extends JsonException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 

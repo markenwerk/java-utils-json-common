@@ -22,13 +22,13 @@
 package net.markenwerk.utils.json.common;
 
 /**
- * A {@link InvalidJsonNameException} is a {@link JsonException} indicates that
+ * A {@link InvalidJsonNameException} is a {@link JsonException} that indicates that
  * a given name value is not valid for a given JSON object.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class InvalidJsonNameException extends JsonException {
+public class InvalidJsonNameException extends InvalidJsonIndexException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 

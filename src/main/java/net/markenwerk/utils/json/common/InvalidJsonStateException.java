@@ -22,46 +22,47 @@
 package net.markenwerk.utils.json.common;
 
 /**
- * A {@link JsonValueException} is a {@link JsonException} indicates that a JSON
- * value couldn't be processed.
+ * A {@link InvalidJsonStateException} is a {@link JsonException} that indicates
+ * that a JSON related operation couldn't be performed because the JSON related
+ * object is not in the correct state for that operation.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public abstract class JsonValueException extends JsonException {
+public class InvalidJsonStateException extends JsonException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 
 	/**
-	 * Creates a new {@link JsonValueException} with the given message and
-	 * cause.
+	 * Creates a new {@link InvalidJsonStateException} with the given message
+	 * and cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link JsonValueException}.
+	 *            The cause of this {@link InvalidJsonStateException}.
 	 */
-	public JsonValueException(String message, Throwable cause) {
+	public InvalidJsonStateException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link JsonValueException} with the given message.
+	 * Creates a new {@link InvalidJsonStateException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public JsonValueException(String message) {
+	public InvalidJsonStateException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link JsonValueException} with the given cause.
+	 * Creates a new {@link InvalidJsonStateException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link JsonValueException}.
+	 *            The cause of this {@link InvalidJsonStateException}.
 	 */
-	public JsonValueException(Throwable cause) {
+	public InvalidJsonStateException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

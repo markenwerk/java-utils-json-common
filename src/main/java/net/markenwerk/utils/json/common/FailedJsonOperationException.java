@@ -22,46 +22,47 @@
 package net.markenwerk.utils.json.common;
 
 /**
- * A {@link MissingJsonValueException} is a {@link InvalidJsonValueException}
- * indicates that a JSON structure has no JSON value for a given index.
+ * A {@link FailedJsonOperationException} is a {@link JsonException} that indicates
+ * that a JSON related operation couldn't be performed because the JSON related
+ * object is not in the correct state for that operation.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public class MissingJsonValueException extends InvalidJsonIndexException {
+public class FailedJsonOperationException extends JsonException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 
 	/**
-	 * Creates a new {@link MissingJsonValueException} with the given message
+	 * Creates a new {@link FailedJsonOperationException} with the given message
 	 * and cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link MissingJsonValueException}.
+	 *            The cause of this {@link FailedJsonOperationException}.
 	 */
-	public MissingJsonValueException(String message, Throwable cause) {
+	public FailedJsonOperationException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link MissingJsonValueException} with the given message.
+	 * Creates a new {@link FailedJsonOperationException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public MissingJsonValueException(String message) {
+	public FailedJsonOperationException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link MissingJsonValueException} with the given cause.
+	 * Creates a new {@link FailedJsonOperationException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link MissingJsonValueException}.
+	 *            The cause of this {@link FailedJsonOperationException}.
 	 */
-	public MissingJsonValueException(Throwable cause) {
+	public FailedJsonOperationException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

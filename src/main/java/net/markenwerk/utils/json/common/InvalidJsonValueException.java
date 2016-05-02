@@ -22,13 +22,13 @@
 package net.markenwerk.utils.json.common;
 
 /**
- * A {@link InvalidJsonValueException} is a {@link JsonValueException} indicates that
- * a JSON value couldn't be processed or failed to fulfill a constraint.
+ * A {@link InvalidJsonValueException} is a {@link JsonException} that indicates
+ * that a JSON value couldn't be processed or failed to fulfill a constraint.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public final class InvalidJsonValueException extends JsonValueException {
+public class InvalidJsonValueException extends JsonException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 
