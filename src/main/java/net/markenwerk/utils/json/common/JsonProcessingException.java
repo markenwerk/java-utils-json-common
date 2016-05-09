@@ -22,47 +22,46 @@
 package net.markenwerk.utils.json.common;
 
 /**
- * A {@link InvalidJsonStateException} is a {@link JsonException} that indicates
- * that a JSON related operation couldn't be performed because the JSON related
- * object is not in the correct state for that operation.
+ * A {@link JsonProcessingException} is a {@link JsonException} that indicates
+ * that a JSON related operation couldn't be performed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public class InvalidJsonStateException extends JsonException {
+public class JsonProcessingException extends JsonException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 
 	/**
-	 * Creates a new {@link InvalidJsonStateException} with the given message
+	 * Creates a new {@link JsonProcessingException} with the given message
 	 * and cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link InvalidJsonStateException}.
+	 *            The cause of this {@link JsonProcessingException}.
 	 */
-	public InvalidJsonStateException(String message, Throwable cause) {
+	public JsonProcessingException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link InvalidJsonStateException} with the given message.
+	 * Creates a new {@link JsonProcessingException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public InvalidJsonStateException(String message) {
+	public JsonProcessingException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link InvalidJsonStateException} with the given cause.
+	 * Creates a new {@link JsonProcessingException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link InvalidJsonStateException}.
+	 *            The cause of this {@link JsonProcessingException}.
 	 */
-	public InvalidJsonStateException(Throwable cause) {
+	public JsonProcessingException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

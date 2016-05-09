@@ -22,46 +22,46 @@
 package net.markenwerk.utils.json.common;
 
 /**
- * A {@link InvalidJsonIndexException} is a {@link JsonException} that indicates that
- * a given index value is not valid for a given JSON structure.
+ * A {@link JsonIndexException} is a {@link JsonException} that indicates that
+ * a given value is not a valid index for a given JSON structure.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public class InvalidJsonIndexException extends JsonException {
+public class JsonIndexException extends JsonException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 
 	/**
-	 * Creates a new {@link InvalidJsonIndexException} with the given message
+	 * Creates a new {@link JsonIndexException} with the given message
 	 * and cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link InvalidJsonIndexException}.
+	 *            The cause of this {@link JsonIndexException}.
 	 */
-	public InvalidJsonIndexException(String message, Throwable cause) {
+	public JsonIndexException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link InvalidJsonIndexException} with the given message.
+	 * Creates a new {@link JsonIndexException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public InvalidJsonIndexException(String message) {
+	public JsonIndexException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link InvalidJsonIndexException} with the given cause.
+	 * Creates a new {@link JsonIndexException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link InvalidJsonIndexException}.
+	 *            The cause of this {@link JsonIndexException}.
 	 */
-	public InvalidJsonIndexException(Throwable cause) {
+	public JsonIndexException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

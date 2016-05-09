@@ -22,46 +22,46 @@
 package net.markenwerk.utils.json.common;
 
 /**
- * A {@link MissingJsonValueException} is a {@link InvalidJsonValueException}
+ * A {@link VacantJsonIndexException} is a {@link JsonValueException}
  * indicates that a JSON structure has no JSON value for a given index.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public class MissingJsonValueException extends InvalidJsonIndexException {
+public class VacantJsonIndexException extends JsonIndexException {
 
 	private static final long serialVersionUID = -224463970528325073L;
 
 	/**
-	 * Creates a new {@link MissingJsonValueException} with the given message
+	 * Creates a new {@link VacantJsonIndexException} with the given message
 	 * and cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link MissingJsonValueException}.
+	 *            The cause of this {@link VacantJsonIndexException}.
 	 */
-	public MissingJsonValueException(String message, Throwable cause) {
+	public VacantJsonIndexException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link MissingJsonValueException} with the given message.
+	 * Creates a new {@link VacantJsonIndexException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public MissingJsonValueException(String message) {
+	public VacantJsonIndexException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link MissingJsonValueException} with the given cause.
+	 * Creates a new {@link VacantJsonIndexException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link MissingJsonValueException}.
+	 *            The cause of this {@link VacantJsonIndexException}.
 	 */
-	public MissingJsonValueException(Throwable cause) {
+	public VacantJsonIndexException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 
